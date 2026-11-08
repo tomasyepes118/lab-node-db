@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title><%= titulo %></title>
+    <link rel="stylesheet" href="/css/estilos.css" />
+  </head>
+  <body>
+    <header class="encabezado">
+      <div class="container">
+        <p class="curso">Programación Web · Laboratorio</p>
+        <h1><%= titulo %></h1>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="tarjeta">
+        <table>
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Apellido</th>
+              <th>Edad</th>
+              <th>Correo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% if (personas.length === 0) { %>
+              <tr class="aviso">
+                <td colspan="4">No hay personas registradas en la colección.</td>
+              </tr>
+            <% } %>
+
+            <% personas.forEach(function (persona) { %>
+              <tr>
+                <td><%= persona.nombre %></td>
+                <td><%= persona.apellido %></td>
+                <td><%= persona.edad %></td>
+                <td><%= persona.correo %></td>
+              </tr>
+            <% }) %>
+          </tbody>
+        </table>
+
+        <p class="total">Total: <%= personas.length %></p>
+      </section>
+    </main>
+  </body>
+</html>
